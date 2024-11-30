@@ -10,7 +10,7 @@ A mini project to demonstrate integration of Chiconnect bank api payout using Re
 
 ## Commit style guidelines
 
-A commit message should easily convey what it contains so this guidelines shows a commit should be for this project.
+A commit message should easily convey what it contains so the guidelines show a commit should be for this project.
 
 The commit message should be in this format `type: subject` where `type` can be any one of these:
 

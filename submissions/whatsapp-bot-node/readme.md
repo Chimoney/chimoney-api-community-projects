@@ -49,4 +49,4 @@ Replace `@username` with the recipient's Telegram username and `amount` with the
 
 ### Receiving Chimoney
 
-When you receive Chimoney, the bot will send recipient a mesage with a link to claim the Chimoney.
+When you receive Chimoney, the bot will send recipient a message with a link to claim the Chimoney.

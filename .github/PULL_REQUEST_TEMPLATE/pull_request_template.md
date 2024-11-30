@@ -21,5 +21,5 @@
 - [ ]  I have added/updated relevant documentation/screenshots (if applicable).
 - [ ]  I have included tests (if applicable).
 - [ ]  I have labeled the PR appropriately with `Feature`, `Improvement`, `Bug` or `New Project`
-- [ ]  My branch is up to date with the main branch.
+- [ ]  My branch is up-to-date with the main branch.
 - [ ]  The PR has a meaningful title and description.

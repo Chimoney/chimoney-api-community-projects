@@ -27,7 +27,7 @@ The /send_chimoney command sends X amount of funds to Y user
 
 ## Deployment
 
-The Chimoney bot is current hosted on a heroku server, however this poses some issues
+The Chimoney bot is currently hosted on a heroku server, however this poses some issues
 as heroku's web processes timeout after a few minutes of inactivity. The bot cannot be deployed on a
 heroku worker as it uses a http server to listen for webhook events.
 

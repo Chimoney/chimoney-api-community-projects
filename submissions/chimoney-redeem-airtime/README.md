@@ -14,12 +14,12 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
-## Screenshots of the the project
+## Screenshots of the project
 <img src="assets/screenshot-1.PNG" alt="screenshot" title="screenshot">
 
 <img src="assets/screenshot-2.PNG" alt="screenshot" title="screenshot">
 
-## Screenshots of the the Redeemed Airtime
+## Screenshots of the Redeemed Airtime
 <img src="assets/text-msg.jpg" alt="text-message" title="text-message">
 <img src="assets/text-msg-2.jpg" alt="text-message" title="text-message">
 

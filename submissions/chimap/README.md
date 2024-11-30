@@ -13,7 +13,7 @@ Run development server:
 npm run dev
 ```
 
-## Enviroment Variables
+## Environment Variables
 For development server, create file ".env.local" in project root folder and add the following
 
 NEXT_PUBLIC_MAPBOX_KEY

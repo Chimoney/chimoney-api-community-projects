@@ -1,6 +1,6 @@
 # chimoney-github-bot
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that facilitates sponsoring github contributors using the chimoney API
+> A GitHub App built with [Probot](https://github.com/probot/probot) that facilitates sponsoring GitHub contributors using the chimoney API
 
 ## Setup
 

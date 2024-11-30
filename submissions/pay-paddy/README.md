@@ -31,7 +31,7 @@ React web app that utilizes most of Chiconnect api endpoints to enable a variety
 
 ## Commit style guidelines
 
-A commit message should easily convey what it contains so this guidelines shows a commit should be for this project.
+A commit message should easily convey what it contains so the guidelines show a commit should be for this project.
 
 The commit message should be in this format `type: subject` where `type` can be any one of these:
 

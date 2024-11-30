@@ -14,7 +14,7 @@ The bot is written in Python and uses the [Tweepy](https://www.tweepy.org/) libr
 It uses the pychimoney library to send the chimoney.
 
 ## How to use
-- Follow the bot on twitter
+- Follow the bot on Twitter
 - Tweet the bot with the following format
     - @chisendtest send amount to @username
 - The bot will you a direct message for confirmation and checkout
