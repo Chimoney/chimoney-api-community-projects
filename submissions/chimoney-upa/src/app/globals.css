@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-gradient-start-light: #670b7b;
+  --bg-gradient-end-light: #e6e6fa;
+  --bg-gradient-start-dark: #1a1a1a; /* Dark mode background color */
+  --bg-gradient-end-dark: #2a2a2a; /* Dark mode background color */
+  --text-color-light: #e0e0e0;
+  --text-color-dark: #ffffff; /* Dark mode text color */
+}
+
+/* Additional CSS styles for light mode */
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-gradient-start: var(--bg-gradient-start-dark);
+    --bg-gradient-end: var(--bg-gradient-end-dark);
+    --text-color: var(--text-color-dark);
+  }
+}
