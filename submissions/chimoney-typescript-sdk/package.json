@@ -1,0 +1,31 @@
+{
+  "name": "chimoney-typescript-sdk",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.m.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && microbundle --tsconfig tsconfig.json --no-sourcemap"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "microbundle": "^0.15.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "isomorphic-unfetch": "^4.0.2",
+    "typescript": "^5.6.3"
+  }
+}
