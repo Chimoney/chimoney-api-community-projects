@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimoney Payouts Integration Guide</title>
+</head>
+<h1>Integrate Chimoney Payouts to Streamline Your Business</h1>
+
+    <p>Looking for a way to streamline your business and save time and money? Consider integrating Chimoney Payouts. Chimoney Payouts is a global payout platform that makes it easy to send and receive money to and from anywhere in the world.</p>
+
+    <h2>Benefits of Chimoney Payouts</h2>
+
+    <ul>
+        <li>Global reach: Supports multiple currencies and countries</li>
+        <li>Competitive fees</li>
+        <li>Ease of use</li>
+        <li>Security</li>
+    </ul>
+
+    <h2>How businesses and platforms use Chimoney Payouts</h2>
+
+    <ul>
+        <li>E-commerce platforms: To pay vendors and affiliates globally</li>
+        <li>Gig economy apps: To facilitate quick and secure payments to freelancers</li>
+        <li>Remittance services: To enable seamless money transfers between users</li>
+        <li>Marketplaces: To efficiently distribute funds to sellers or service providers</li>
+        <li>Crowdfunding platforms: To disburse funds to project backers with ease</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>If you're looking for a way to streamline your business and save time and money, Chimoney Payouts is the perfect solution for you. With its global reach, competitive fees, ease of use, and security features, Chimoney Payouts is the best choice for businesses and platforms of all sizes.</p>
+
+    <a href="https://chimoney.io/payouts">Sign up for a free Chimoney Payouts account today!</a>
+
+<body>
+    <div class="title" align="center">
+        <p><u><b>Chimoney Payouts Integration Guide</p></u>
+        </b></div>
+<p><b>Finished product: </p></b>
+<a href="https://rb.gy/y5awd"> currency converter using chimoney</a>
+
+<p> Integration Steps (Using javascript and html as an Example): </p>
+
+
+<p><b>Step 1: Obtain API Key</b></p>
+<p>Register on Chimoney and obtain your API key in the developers portal </p>
+<p>Follow this tutorial on how to get the get started with chimoney api and developer portal</p>
+<p>For this tutorial we will be using the convert local currency amount to USD endpoint this is the url for that https://api.chimoney.io/v0.2/payouts/mobile-money
+</p>
+
+<p><b>Step 2: user interface</p></b>
+
+We will create a small interface for easier integration with our api key the interface will provide a way for us to pass the two parameters that is the amount and the country code that are required for the endpoint.
+
+<img src="./interface.png" alt="currency converter interface ">
+
+<xmp>
+<body>
+    <div class="title">
+        <h2>Get usd amount in Local</h2>
+    </div>
+    <div class="country">
+        sample country codes
+        <ul>
+            <li>Kenya code : KES</li>
+            <li>Nigeria code: NG</li>
+            <li>Ghana code: GHN</li>
+        </ul>
+    </div>
+    <div class="form">
+        <label>Country symbol</label> 
+        <input type="text" id="symbol"> <br/> <br/>  //input tags
+        <label>Amount  </label>  
+        <input type="text" id="amount"><br/><br/> //input tags
+    </div>
+        <div class="button">
+            <button onclick="convert()">Convert</button> //calls the convert function
+        </div>
+        <div id="result"></div>
+</body>
+</xmp>
+
+The major parts of this code is this line <xmp><button onclick="convert()"></xmp>Convert</button>
+Which on click calls the convert method which is where we have our api function
+
+<p><b>Step 3: Initialize Chimoney</p></b>
+
+<p></p>Let's now dive into the real part we will be using javascript for this and use the fetch in built method
+<p></p>function convert () { //function triggered on click the 
+    <p></p>const countrySymbol = document.getElementById('symbol').value; // this are to passed as parameter to the endpoint and the are keyed in by the user
+    <p></p>const amountInUSD = document.getElementById('amount').value;
+
+    <p>const options = { // fetch method takes to params that is the options and url so lets define the options
+        <p>method: 'GET', // this is the method used get method retrieves data 
+            <p>headers: { // takes in our api key as application json
+                <p>accept: 'application-json',
+                    <p>'X-API-KEY': "f53b14db7658d93aeb2f8589838b87e01d730d82b9c73e9878065452902790b7" //for best practices save your api key in the .env file
+                        <p>}
+                            <p>};
+    <p>const apiUrl = 'https://api.chimoney.io/v0.2/info/usd-amount-in-local?destinationCurrency=USD&amountInUSD=1' //pass the url to the endpoint where data is to bne fetched 
+    <p>fetch(apiUrl, options) //as we said earlier fetch takes two params pass them here, you can also use the axios method.it's also safe to test your codes in the sandbox/postman before coding it
+    <p>.then(response => response.json())
+    <p>.then(response => { document.getElementById('result').innerText = `Result: ${JSON.stringify(response)}`; ///we stringify the response we get so that it becomes user friendly then we render it under the result div
+<p>})
+    <p>.catch(err => console.error(err));//if the response is not of status 200 a descriptive error will be returned 
+<p>}
+
+
+<p><b>Step 4: Make a conversion</b>
+<p>Click on the covert button and the result will be displayed
+
+<p><b>Step 5: Handle Errors</b>
+
+<p>Implement error handling to manage API responses:
+<p>javascript
+<p>.catch(err => console.error(err)); //this will make it easier to debug your code
+
+<p><b>Demo Project:</b>
+
+<p>link to GitHub repository containing the  demo project showcasing the integration steps and a working example.
+<a href="https://github.com/Davidongora/currency_converter">Github link</a> <p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./apifetch.js"></script>
+    <script src="./key.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="title">
+        <h2>Get usd amount in Local</h2>
+    </div>
+    <div class="country">
+        sample country codes
+        <ul>
+            <li>Kenya code : KES</li>
+            <li>Nigeria code: NG</li>
+            <li>Ghana code: GHN</li>
+        </ul>
+    </div>
+    <div class="form">
+        <label>Country symbol</label> 
+        <input type="text" id="symbol"> <br/> <br/> 
+        <label>Amount  </label>  
+        <input type="text" id="amount"><br/><br/>
+    </div>
+        <div class="button">
+            <button onclick="convert()">Convert</button>
+        </div>
+
+        <div id="result"></div>
+
+</body>
+</html>
