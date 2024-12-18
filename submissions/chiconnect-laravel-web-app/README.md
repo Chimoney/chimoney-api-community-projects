@@ -1,66 +1,210 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+  </a>
 </p>
 
-## About Laravel
+<p align="center">
+  <a href="https://travis-ci.org/laravel/framework">
+    <img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
+  </a>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Chimoney Laravel SDK
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The **Chimoney Laravel SDK** simplifies integration with the Chimoney API, enabling Laravel developers to perform operations like payment processing, rewards handling, and more.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation Instructions
 
-## Learning Laravel
+### Prerequisites
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PHP 8.0 or higher
+- Composer
+- Laravel 8.x or higher
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Step 1: Install the SDK using Composer
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+composer require chimoney/chimoney-laravel-sdk
+```
 
-## Laravel Sponsors
+### Step 2: Publish Configuration File
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+After installation, publish the configuration file to your Laravel project:
 
-### Premium Partners
+```bash
+php artisan vendor:publish --provider="Chimoney\ChimoneyServiceProvider"
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+This will create a `chimoney.php` configuration file in the config directory.
+
+### Step 3: Add API Credentials to .env
+
+Add the following Chimoney API credentials to your Laravel `.env` file:
+
+```env
+CHIMONEY_API_KEY=your_api_key
+CHIMONEY_BASE_URL=https://api.chimoney.io
+```
+
+Make sure to replace `your_api_key` with the API key obtained from Chimoney.
+
+### Step 4: Clear Configuration Cache (Optional)
+
+If you have previously cached your configuration, clear the cache:
+
+```bash
+php artisan config:clear
+```
+
+## Usage Guide
+
+### Basic Usage
+
+Here is a step-by-step example of how to use the Chimoney Laravel SDK.
+
+#### Step 1: Initialize the SDK
+
+Use dependency injection or the facade to initialize the SDK in your controller or service class.
+
+```php
+use Chimoney\Chimoney;
+
+class PaymentController extends Controller
+{
+    public function makePayment()
+    {
+        $chimoney = new Chimoney();
+        
+        // Example API request
+        $response = $chimoney->sendPayout([
+            'amount' => 100,
+            'currency' => 'USD',
+            'recipient' => [
+                'email' => 'user@example.com'
+            ],
+        ]);
+
+        if ($response['success']) {
+            return response()->json(['message' => 'Payment sent successfully!']);
+        }
+
+        return response()->json(['error' => $response['error']], 400);
+    }
+}
+```
+
+#### Step 2: Handle Responses
+
+The SDK will return responses in a structured format. For example:
+
+```php
+$response = $chimoney->checkBalance();
+
+if ($response['success']) {
+    return $response['data'];
+} else {
+    return $response['error'];
+}
+```
+
+### Additional Operations
+
+The SDK supports various operations. Examples include:
+
+**Check Balance:**
+```php
+$chimoney->checkBalance();
+```
+
+**Send Payouts:**
+```php
+$chimoney->sendPayout([...]);
+```
+
+**Retrieve Transaction History:**
+```php
+$chimoney->getTransactions();
+```
+
+Refer to the Chimoney API documentation for a complete list of available endpoints and operations.
+
+## Configuration Details
+
+### Environment Variables
+
+- `CHIMONEY_API_KEY`: The API key provided by Chimoney.
+- `CHIMONEY_BASE_URL`: The base URL for Chimoney API. Default is https://api.chimoney.io.
+
+Ensure these are set in your `.env` file.
+
+### Configuration File
+
+The `chimoney.php` file in the config directory includes customizable settings. For example:
+
+```php
+return [
+    'api_key' => env('CHIMONEY_API_KEY'),
+    'base_url' => env('CHIMONEY_BASE_URL', 'https://api.chimoney.io'),
+];
+```
+
+## Testing Instructions
+
+### Step 1: Verify SDK Installation
+
+Create a simple route to ensure the SDK is installed and functioning:
+
+```php
+Route::get('/test-chimoney', function () {
+    $chimoney = new \Chimoney\Chimoney();
+    $response = $chimoney->checkBalance();
+    
+    return response()->json($response);
+});
+```
+
+Visit `/test-chimoney` in your browser or use a tool like Postman to ensure the API connection is successful.
+
+### Step 2: Run Unit Tests
+
+If you have PHPUnit configured in your Laravel project, you can write and run tests to verify the SDK functionality. Example:
+
+```php
+public function testChimoneyBalanceCheck()
+{
+    $chimoney = new \Chimoney\Chimoney();
+    $response = $chimoney->checkBalance();
+
+    $this->assertTrue($response['success']);
+}
+```
+
+Run tests with:
+
+```bash
+php artisan test
+```
+
+### Step 3: Debugging Tips
+
+- Check your `.env` file for proper API key configuration
+- Use `php artisan config:clear` to refresh environment variable settings
+- Inspect API responses using Laravel's logging system
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Contributions are welcome! Please read the contribution guidelines for details on how to contribute.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Chimoney Laravel SDK is open-sourced software licensed under the MIT license.
