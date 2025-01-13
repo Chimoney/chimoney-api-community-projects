@@ -1,0 +1,77 @@
+/* General Body Styling */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Form Container */
+  form {
+    width: 100%;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #6a0dad;
+  }
+  
+  /* Form Fields Styling */
+  div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    color: #4a4a4a;
+    margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="email"]:focus,
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #6a0dad; /* Purple theme */
+    outline: none;
+  }
+  
+  /* Button Styling */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #6a0dad; /* Purple color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #5700b3; /* Darker purple */
+  }
+  
+  /* Payout Messages */
+  p {
+    text-align: center;
+    font-size: 16px;
+    color: #6a0dad;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  

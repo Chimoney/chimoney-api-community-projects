@@ -1,0 +1,9 @@
+<p>Send airtime works!</p>
+
+<form (ngSubmit)="payoutAirtime()">
+    <input type="text" [(ngModel)]="airtimePayload.countryToSend" placeholder="Country" required />
+    <input type="text" [(ngModel)]="airtimePayload.phoneNumber" placeholder="Phone Number" required />
+    <input type="number" [(ngModel)]="airtimePayload.valueInUSD" placeholder="Amount in USD" required />
+    <input type="text" [(ngModel)]="airtimePayload.narration" placeholder="Narration" />
+    <button type="submit">Send Airtime</button>
+</form> 

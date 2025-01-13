@@ -1,0 +1,30 @@
+<p>bank-payout works!</p>
+<form (ngSubmit)="payoutBank()">
+    <div>
+      <label for="country">Country:</label>
+      <input type="text" id="country" [(ngModel)]="bankPayload.countryToSend" name="country" placeholder="Payout country" required />
+    </div>
+  
+    <div>
+      <label for="bankCode">Bank Code:</label>
+      <input type="text" id="bankCode" [(ngModel)]="bankPayload.account_bank" name="bankCode" placeholder="Bank code" required />
+    </div>
+  
+    <div>
+      <label for="accountNumber">Account Number:</label>
+      <input type="text" id="accountNumber" [(ngModel)]="bankPayload.account_number" name="accountNumber" placeholder="Recipient account number" required />
+    </div>
+  
+    <div>
+      <label for="valueInUSD">Amount in USD:</label>
+      <input type="number" id="valueInUSD" [(ngModel)]="bankPayload.valueInUSD" name="valueInUSD" placeholder="Amount in USD" required />
+    </div>
+  
+    <div>
+      <label for="narration">Narration:</label>
+      <input type="text" id="narration" [(ngModel)]="bankPayload.narration" name="narration" placeholder="Narration" />
+    </div>
+  
+    <button type="submit">Payout to Bank</button>
+  </form>
+  

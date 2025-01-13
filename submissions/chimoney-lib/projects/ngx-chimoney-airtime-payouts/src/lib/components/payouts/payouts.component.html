@@ -1,0 +1,26 @@
+<p>payouts works!</p>
+
+<form (ngSubmit)="payoutChimoney()">
+    <div>
+      <label for="email">Recipient Email:</label>
+      <input type="email" id="email" [(ngModel)]="chimoneyPayload.email" name="email" placeholder="Recipient's email" required />
+    </div>
+  
+    <div>
+      <label for="phone">Recipient Phone Number:</label>
+      <input type="text" id="phone" [(ngModel)]="chimoneyPayload.phone" name="phone" placeholder="Recipient's phone with country code" required />
+    </div>
+  
+    <div>
+      <label for="valueInUSD">Amount in USD:</label>
+      <input type="number" id="valueInUSD" [(ngModel)]="chimoneyPayload.valueInUSD" name="valueInUSD" placeholder="Amount in USD" required />
+    </div>
+  
+    <div>
+      <label for="narration">Narration:</label>
+      <input type="text" id="narration" [(ngModel)]="chimoneyPayload.narration" name="narration" placeholder="Narration" />
+    </div>
+  
+    <button type="submit">Payout Chimoney</button>
+  </form>
+  
