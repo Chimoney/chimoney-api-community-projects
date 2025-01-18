@@ -1,0 +1,38 @@
+[
+    {
+        "name": "fund_wallet",
+        "action": "fund_wallet_amount"
+    },
+    {
+        "name": "pull_fund",
+        "action": "pull_fund_amount"
+    },
+    {
+        "name": "user_name",
+        "action": "user_name_input"
+    },
+    {
+        "name": "send_fund",
+        "action": "send_fund_account"
+    },
+    {
+        "name": "send_fund_account",
+        "action": "send_fund_account_input"
+    },
+    {
+        "name": "send_fund_amount",
+        "action": "send_fund_amount_input"
+    },
+    {
+        "name": "buy_airtime",
+        "action": "buy_airtime_number"
+    },
+    {
+        "name": "buy_airtime_number",
+        "action": "buy_airtime_account_input"
+    },
+    {
+        "name": "buy_airtime_amount",
+        "action": "buy_airtime_amount_input"
+    }
+]
